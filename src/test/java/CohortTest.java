@@ -42,4 +42,34 @@ public class CohortTest {
         assertEquals(95.0, cohortWithMany.getCohortAverage(), 0);
     }
 
+    @Test
+    public void testStudentAdd(){
+        Student student1 = new Student(3, "JT");
+        Student student2 = new Student(4, "Johnny");
+        Student student3 = new Student(5, "Jillian");
+        cohortWithMany.addStudent(student1);
+        cohortWithMany.addStudent(student2);
+        cohortWithMany.addStudent(student3);
+        assertEquals(5, cohortWithMany.getStudents().size());
+    }
+
+    @Test
+    public void testGetStudents(){
+        Student expected = new Student(6, "Ptolemy");
+        cohortWithMany.addStudent(expected);
+        assertSame(expected, cohortWithMany.getStudents().get(2));
+        System.out.println(cohortWithMany.getStudents().get(2).getId());
+    }
+
+    @Test
+    public void testCohortAverage(){
+        System.out.println(cohortWithMany.getCohortAverage());
+        Student willy = new Student(7, "Willy");
+        willy.addGrade(100);
+        willy.addGrade(95);
+        willy.addGrade(90);
+        cohortWithMany.addStudent(willy);
+        assertEquals(95, cohortWithMany.getCohortAverage(), 0.1);
+    }
+
 }
