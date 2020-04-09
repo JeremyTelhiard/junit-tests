@@ -10,12 +10,6 @@ import static org.junit.Assert.*;
 public class StudentTest {
 
 
-
-//    @Before
-//    public void setUp(){
-//
-//    }
-
     @Test
     public void testPropertiesExist(){
         Student student = new Student("Tony");
